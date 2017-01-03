@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<PROG6_2016_Tamagotchi.Models.Tamagotchi>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tamagotchi's";
 }
 
-<h2>Index</h2>
+<h2 style="background-color: #d5ddea; opacity: 0.9;">Select your Tamagotchi here</h2>
 
-<p>
+<p style="background-color: #d5ddea; opacity: 0.9;">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" style="background-color: #d5ddea; opacity: 0.9;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -53,9 +53,8 @@
             @Html.DisplayFor(modelItem => item.Health)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Next", "Next", new { id=item.Id }) 
+           
         </td>
     </tr>
 }
