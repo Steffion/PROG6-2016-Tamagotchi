@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="c169b428-7daa-4a0b-92ad-fe4aa38fc6b3" ChangeDateTime="01/03/2017 09:08:17">
+    <Property Name="ElementName" Value="[dbo].[Tamagotchi].[Leeftijd]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tamagotchi]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Age" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9729d43b-9b33-46fe-9f2f-e07b4021b82a" ChangeDateTime="01/03/2017 09:08:20">
+    <Property Name="ElementName" Value="[dbo].[Tamagotchi].[Honger]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tamagotchi]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Hunger" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f5b02fd6-1a0e-4e5b-8d2e-67cd796bf920" ChangeDateTime="01/03/2017 09:08:22">
+    <Property Name="ElementName" Value="[dbo].[Tamagotchi].[Slaap]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tamagotchi]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Sleep" />
+  </Operation>
+</Operations>
