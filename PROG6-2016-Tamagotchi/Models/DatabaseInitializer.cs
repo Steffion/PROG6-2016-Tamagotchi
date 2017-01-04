@@ -12,10 +12,10 @@ namespace PROG6_2016_Tamagotchi.Models
         {
             base.Seed(context);
 
-            context.Tamagotchis.Add(new Tamagotchi() { Name = "Ger" });
-            context.Tamagotchis.Add(new Tamagotchi() { Name = "Merel" });
-            context.Tamagotchis.Add(new Tamagotchi() { Name = "Stijn" });
-            context.Tamagotchis.Add(new Tamagotchi() { Name = "Stef" });
+            context.Tamagotchis.Add(new Tamagotchi() { Name = "Ger", Created = DateTime.Now, LastAccess = DateTime.Now });
+            context.Tamagotchis.Add(new Tamagotchi() { Name = "Merel", Created = DateTime.Now, LastAccess = DateTime.Now });
+            context.Tamagotchis.Add(new Tamagotchi() { Name = "Stijn", Created = DateTime.Now, LastAccess = DateTime.Now });
+            context.Tamagotchis.Add(new Tamagotchi() { Name = "Stef", Created = DateTime.Now, LastAccess = DateTime.Now });
 
             context.SaveChanges();
         }

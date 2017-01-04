@@ -269,7 +269,9 @@
     <Content Include="Views\Tamagotchis\Details.cshtml" />
     <Content Include="Views\Tamagotchis\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
