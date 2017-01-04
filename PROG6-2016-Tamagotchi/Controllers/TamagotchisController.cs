@@ -45,7 +45,7 @@ namespace PROG6_2016_Tamagotchi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Gold,ItemUrl")] Tamagotchi tamagotchi)
+        public ActionResult Create([Bind(Include = "Id,Name,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace PROG6_2016_Tamagotchi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Gold,ItemUrl")] Tamagotchi tamagotchi)
+        public ActionResult Edit([Bind(Include = "Id,Name,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
         {
             if (ModelState.IsValid)
             {

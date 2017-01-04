@@ -261,10 +261,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Tamagotchis\Index.cshtml" />
+    <Content Include="Views\Tamagotchis\Create.cshtml" />
+    <Content Include="Views\Tamagotchis\Delete.cshtml" />
+    <Content Include="Views\Tamagotchis\Details.cshtml" />
+    <Content Include="Views\Tamagotchis\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
