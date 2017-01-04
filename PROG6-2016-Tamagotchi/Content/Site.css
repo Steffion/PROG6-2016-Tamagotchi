@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+ul{
+    background-color: #d5ddea;
+    float: left;
+    list-style-type: none;
+}
+
+ul > li {
+    float:left; 
+    padding: 20px;
+}

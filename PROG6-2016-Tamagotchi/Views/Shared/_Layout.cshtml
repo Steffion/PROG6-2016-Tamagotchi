@@ -20,7 +20,7 @@
         appInsights.trackPageView();
     </script>
 </head>
-<body style="background-image:url('Resources/Background.gif'); background-position: center; background-repeat: no-repeat;">
+<body style="background-image:url('Resources/Background.gif'); background-position: center; background-repeat: repeat;">
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #d5ddea; opacity: 1;">
         <div class="container">
             <div class="navbar-header">
@@ -42,7 +42,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer style="background-color: #d5ddea; opacity: 0.9;">
+        <footer style="background-color: #d5ddea; opacity: 0.9; padding: 10px; bottom: 0; position: fixed; width: 1100px; text-align: center;">
             <p>Made by Stef de Goey & Merel Kokkeler - 2017</p>
         </footer>
     </div>
