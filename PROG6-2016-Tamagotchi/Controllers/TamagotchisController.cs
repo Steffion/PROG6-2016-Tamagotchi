@@ -1,4 +1,5 @@
 ﻿using PROG6_2016_Tamagotchi.Models;
+using PROG6_2016_Tamagotchi.Models.GameRule;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,7 @@ namespace PROG6_2016_Tamagotchi.Controllers
     public class TamagotchisController : Controller
     {
         private Models.Database db = new Models.Database();
-
+        
         // GET: Tamagotchi
         public ActionResult Index()
         {
@@ -31,6 +32,10 @@ namespace PROG6_2016_Tamagotchi.Controllers
             {
                 return HttpNotFound();
             }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+
             return View(tamagotchi);
         }
 
@@ -72,6 +77,10 @@ namespace PROG6_2016_Tamagotchi.Controllers
             {
                 return HttpNotFound();
             }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+
             return View(tamagotchi);
         }
 
@@ -85,6 +94,7 @@ namespace PROG6_2016_Tamagotchi.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(tamagotchi).State = EntityState.Modified;
+                tamagotchi.UpdateStatus();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -103,6 +113,10 @@ namespace PROG6_2016_Tamagotchi.Controllers
             {
                 return HttpNotFound();
             }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+
             return View(tamagotchi);
         }
 

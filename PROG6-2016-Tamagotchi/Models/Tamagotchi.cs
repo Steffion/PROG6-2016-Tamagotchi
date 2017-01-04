@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROG6_2016_Tamagotchi.Models.GameRule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,5 +27,20 @@ namespace PROG6_2016_Tamagotchi.Models
         public int Bored { get; set; }
 
         public int Health { get; set; }
+        
+        private Tiredness tiredness = new Tiredness();
+        private Boredom boredom = new Boredom();
+        private Hunger hunger = new Hunger();
+
+        public void UpdateStatus()
+        {
+            Random random = new Random();
+
+            Sleep = tiredness.ExecuteGameRule(this, random.Next(15, 35)).Sleep;
+            Bored = boredom.ExecuteGameRule(this, random.Next(15, 35)).Bored;
+            Hunger = hunger.ExecuteGameRule(this, random.Next(15, 35)).Hunger;
+
+            LastAccess = DateTime.Now;
+        }
     }
 }
