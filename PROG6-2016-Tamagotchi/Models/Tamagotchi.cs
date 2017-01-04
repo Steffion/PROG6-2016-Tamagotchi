@@ -9,10 +9,23 @@ namespace PROG6_2016_Tamagotchi.Models
 {
     public class Tamagotchi
     {
+        private string _name;
+
         [Key]
         public int Id { get; set; }
 
-        public String Name { get; set; }
+        public String Name
+        {
+            get
+            {
+                UpdateStatus();
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
 
         public DateTime LastAccess { get; set; }
 
@@ -27,7 +40,7 @@ namespace PROG6_2016_Tamagotchi.Models
         public int Bored { get; set; }
 
         public int Health { get; set; }
-        
+
         private Tiredness tiredness = new Tiredness();
         private Boredom boredom = new Boredom();
         private Hunger hunger = new Hunger();
