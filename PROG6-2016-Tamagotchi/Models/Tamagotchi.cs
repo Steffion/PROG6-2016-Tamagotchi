@@ -40,6 +40,12 @@ namespace PROG6_2016_Tamagotchi.Models
             Bored = boredom.ExecuteGameRule(this, random.Next(15, 35)).Bored;
             Hunger = hunger.ExecuteGameRule(this, random.Next(15, 35)).Hunger;
 
+            if (Health > 0)
+            {
+                TimeSpan deltaTime = DateTime.Now - LastAccess;
+                Age += deltaTime.Seconds;
+            }
+
             LastAccess = DateTime.Now;
         }
     }

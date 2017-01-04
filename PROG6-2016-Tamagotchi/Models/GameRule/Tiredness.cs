@@ -15,7 +15,6 @@ namespace PROG6_2016_Tamagotchi.Models.GameRule
             while (interval.Ticks < deltaTime.Ticks)
             {
                 if (tamagotchi.Sleep + value > 80 &&
-                    tamagotchi.Sleep < 80 &&
                     tamagotchi.Health >= 20)
                 {
                     tamagotchi.Health -= 20;
