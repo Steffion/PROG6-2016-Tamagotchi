@@ -54,6 +54,7 @@ namespace PROG6_2016_Tamagotchi.Controllers
         {
             tamagotchi.Created = DateTime.Now;
             tamagotchi.LastAccess = DateTime.Now;
+            tamagotchi.Health = 100;
 
             if (ModelState.IsValid)
             {

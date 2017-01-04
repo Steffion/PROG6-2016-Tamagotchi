@@ -11,9 +11,21 @@ namespace PROG6_2016_Tamagotchi.Models.GameRule
         {
             TimeSpan deltaTime = DateTime.Now - tamagotchi.LastAccess;
             TimeSpan interval = TimeSpan.FromSeconds(10);
+            
+            if (tamagotchi.Bored > 80)
+            {
+                value = value * 2;
+            }
 
             while (interval.Ticks < deltaTime.Ticks)
             {
+                if (tamagotchi.Hunger + value > 80 &&
+                    tamagotchi.Hunger < 80 &&
+                    tamagotchi.Health >= 20)
+                {
+                    tamagotchi.Health -= 20;
+                }
+                
                 tamagotchi.Hunger += value;
 
                 if (tamagotchi.Hunger > 100)
