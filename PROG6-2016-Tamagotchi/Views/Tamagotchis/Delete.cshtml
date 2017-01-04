@@ -1,0 +1,72 @@
+﻿@model PROG6_2016_Tamagotchi.Models.Tamagotchi
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tamagotchi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hunger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hunger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sleep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sleep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bored)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bored)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Health)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Health)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

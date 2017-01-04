@@ -1,0 +1,67 @@
+﻿@model PROG6_2016_Tamagotchi.Models.Tamagotchi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tamagotchi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hunger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hunger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sleep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sleep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bored)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bored)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Health)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Health)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
