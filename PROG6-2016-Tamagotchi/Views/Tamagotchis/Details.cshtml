@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
+<h2 style="background-color: #d5ddea; padding:10px; border-radius: 4px;" >Details</h2>
 
 <div>
-    <h4>Tamagotchi</h4>
+    <h4 style="background-color: #d5ddea; padding:10px; border-radius: 4px;" > Your Tamagotchi</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl  style="background-color: #d5ddea; padding:10px; border-radius: 4px;"class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -60,8 +60,8 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+<p style="background-color: #d5ddea; padding:10px; border-radius: 4px;">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })     |
     @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
