@@ -50,6 +50,6 @@ textarea {
     border-radius: 4px;
 }
 
-.progress-bar{
-    background-color: green;
+.dl-horizontal dd {
+    width: 30%; 
 }

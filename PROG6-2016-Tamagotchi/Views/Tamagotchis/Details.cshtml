@@ -32,9 +32,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Hunger)
-            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#d6aa8b;">
-                100%
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Hunger)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Hunger)%; background-color:#ceb388;">
+                @Html.DisplayFor(model => model.Hunger)%
             </div>
         </dd>
 
@@ -43,9 +42,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sleep)
-            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#81a9ea;">
-                100%
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Sleep)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Sleep)%; background-color:#88c2ce;">
+                @Html.DisplayFor(model => model.Sleep)%
             </div>
         </dd>
 
@@ -54,9 +52,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Bored)
-            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#e08282;">
-                100%
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Bored)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Bored)%; background-color:#db8585;">
+                @Html.DisplayFor(model => model.Bored)%
             </div>
         </dd>
 
@@ -65,9 +62,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Health)
-            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#8bd693;">
-                100%
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Health)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Health)%; background-color:#8fe093;">
+                @Html.DisplayFor(model => model.Health)%
             </div>
         </dd>
 
