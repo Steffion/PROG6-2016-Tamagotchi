@@ -39,6 +39,7 @@ textarea {
     padding: 20px;
     padding-right: 27px;
     border-radius: 4px;
+    margin-left: 0px;
 }
 
 .Creatures:hover{
