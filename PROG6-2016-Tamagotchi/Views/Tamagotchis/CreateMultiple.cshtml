@@ -3,12 +3,12 @@
     ViewBag.Title = "CreateMultiple";
 }
 
-<h2>Create multiple</h2>
+<h2 style="background-color: #d5ddea; padding:10px;">Create multiple</h2>
 
 <form method="post">
-    <div class="form-horizontal">
+    <div class="form-horizontal"  style="background-color: #d5ddea; padding:10px;">
         <div>
-            <label>Amount</label>
+            <label  style="background-color: #d5ddea; padding:10px;">Amount</label>
             @Html.TextBox("Amount", null, new { @class = "span1", type = "number", required = "required", min = 1, max = 100 })
         </div>
         <div class="form-group">
@@ -21,7 +21,7 @@
     </div>
 </form>
 
-<div>
+<div  style="background-color: #d5ddea; padding:10px;">
     @Html.ActionLink("Back to List", "Index")
 </div>
 
