@@ -9,7 +9,7 @@ namespace PROG6_2016_Tamagotchi.Models.GameRule
     {
         public Tamagotchi ExecuteGameRule(Tamagotchi tamagotchi, int value)
         {
-            TimeSpan deltaTime = DateTime.Now - tamagotchi.LastAccess;
+            TimeSpan deltaTime = DateTime.UtcNow - tamagotchi.LastAccess;
             TimeSpan interval = TimeSpan.FromSeconds(10);
 
             while (interval.Ticks < deltaTime.Ticks)

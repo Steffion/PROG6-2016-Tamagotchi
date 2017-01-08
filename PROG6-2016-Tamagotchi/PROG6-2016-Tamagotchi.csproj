@@ -200,8 +200,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Action\FeedAction.cs" />
     <Compile Include="Models\Database.cs" />
     <Compile Include="Models\DatabaseInitializer.cs" />
+    <Compile Include="Models\Action\IAction.cs" />
     <Compile Include="Models\GameRule\IGameRule.cs" />
     <Compile Include="Models\GameRule\Boredom.cs" />
     <Compile Include="Models\GameRule\Hunger.cs" />
@@ -233,7 +235,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap-flex.min.css.map" />
     <Content Include="Content\bootstrap-flex.css.map" />
-    <None Include="Properties\PublishProfiles\PROG6-2016-Tamagotchi20161212011926.pubxml" />
+    <None Include="Properties\PublishProfiles\PROG6-2016-Tamagotchi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Resources\Tamagotchi1.png" />
     <Content Include="Resources\Tamagotchi10.png" />
@@ -294,6 +296,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

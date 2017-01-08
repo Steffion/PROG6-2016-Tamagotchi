@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
+
 <link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
 <h2 style="background-color: #d5ddea; padding:10px; border-radius: 4px;" >Details</h2>
 
@@ -67,24 +68,29 @@
                 @Html.DisplayFor(model => model.Health)%
             </div>
         </dd>
-       
     </dl>
 
 </div>
 
 <div style="background-color: #d5ddea; border-radius: 4px; padding: 10px;">
-    <button style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;"> 
-        Feed 
-    </button>
-    <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;"> 
-        Sleep 
-    </button>
-    <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;"> 
-        Play 
-    </button>
-    <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">  
-        Nurse 
-    </button>
+    <form method="post">
+        @*@Html.DropDownList("Action", actions, new { @class = "form-control" })
+        <input type="submit" value="Execute" />*@
+
+        <input type="submit" name="Action" value="Feed" onclick="location.href='@Url.Action("Details", "Tamagotchis")'" style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">
+            Sleep
+        </button>
+        <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">
+            Play
+        </button>
+        <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">
+            Nurse
+        </button>
+
+    </form>
+
+    
 </div>
 
 <p>

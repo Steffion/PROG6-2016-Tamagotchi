@@ -1,4 +1,5 @@
-﻿using PROG6_2016_Tamagotchi.Models.GameRule;
+﻿using PROG6_2016_Tamagotchi.Models.Action;
+using PROG6_2016_Tamagotchi.Models.GameRule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,10 +10,14 @@ namespace PROG6_2016_Tamagotchi.Models
 {
     public class Tamagotchi
     {
+        private static Random random = new Random();
+
         [Key]
         public int Id { get; set; }
 
         public String Name { get; set; }
+
+        public int Cooldown { get; set; }
 
         public DateTime LastAccess { get; set; }
 
@@ -32,21 +37,26 @@ namespace PROG6_2016_Tamagotchi.Models
         private Boredom boredom = new Boredom();
         private Hunger hunger = new Hunger();
 
+        private FeedAction feed = new FeedAction();
+
         public void UpdateStatus()
         {
-            Random random = new Random();
-
             Sleep = tiredness.ExecuteGameRule(this, random.Next(15, 35)).Sleep;
             Bored = boredom.ExecuteGameRule(this, random.Next(15, 35)).Bored;
             Hunger = hunger.ExecuteGameRule(this, random.Next(15, 35)).Hunger;
 
             if (Health > 0)
             {
-                TimeSpan deltaTime = DateTime.Now - LastAccess;
+                TimeSpan deltaTime = DateTime.UtcNow - LastAccess;
                 Age += deltaTime.Seconds;
             }
 
-            LastAccess = DateTime.Now;
+            LastAccess = DateTime.UtcNow;
+        }
+
+        public void Feed()
+        {
+            feed.ExectuteAction(this);
         }
     }
 }

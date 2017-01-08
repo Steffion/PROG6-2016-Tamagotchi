@@ -13,7 +13,7 @@ namespace PROG6_2016_Tamagotchi.Controllers
     public class TamagotchisController : Controller
     {
         private Models.Database db = new Models.Database();
-        
+
         // GET: Tamagotchi
         public ActionResult Index()
         {
@@ -65,8 +65,8 @@ namespace PROG6_2016_Tamagotchi.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,LastAccess,Created,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
         {
-            tamagotchi.Created = DateTime.Now;
-            tamagotchi.LastAccess = DateTime.Now;
+            tamagotchi.Created = DateTime.UtcNow;
+            tamagotchi.LastAccess = DateTime.UtcNow;
             tamagotchi.Health = 100;
 
             if (ModelState.IsValid)
@@ -77,6 +77,25 @@ namespace PROG6_2016_Tamagotchi.Controllers
             }
 
             return View(tamagotchi);
+        }
+
+        // POST: Tamagotchi/Details
+        [HttpPost]
+        public ActionResult Details(int? id, FormCollection form)
+        {
+            var tamagotchi = db.Tamagotchis.Where(x => x.Id == id).First();
+            string action = form["Action"].ToString();
+            // TODO Check cooldown
+            
+            if (action.Equals("Feed"))
+            {
+                tamagotchi.Feed();
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+            //return RedirectToAction("Wait", selectedTamagotchi);
         }
 
         // GET: Tamagotchi/Edit/5
