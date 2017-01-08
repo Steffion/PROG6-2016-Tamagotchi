@@ -1,12 +1,16 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('/Resources/Background.gif');
+
 }
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-image:url('Resources/Background.gif');
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +25,37 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.CreatureList{
+    background-color: #d5ddea;
+    float: left;
+    list-style-type: none;
+    border-radius: 4px;
+}
+
+.Creatures{
+    float:left; 
+    padding: 20px;
+    padding-right: 27px;
+    border-radius: 4px;
+    margin-left: 0px;
+}
+
+.Creatures:hover{
+    display: block;
+    background-color: grey;
+}
+
+.progress-bar{
+    border-radius: 4px;
+}
+
+.dl-horizontal dd {
+    width: 30%; 
+}
+
+a.ActionLinkButtons{
+    background-color: black;
+    text-indent: -9999px;
 }

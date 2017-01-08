@@ -1,4 +1,5 @@
 ﻿using PROG6_2016_Tamagotchi.Models;
+using PROG6_2016_Tamagotchi.Models.GameRule;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -31,6 +32,10 @@ namespace PROG6_2016_Tamagotchi.Controllers
             {
                 return HttpNotFound();
             }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+
             return View(tamagotchi);
         }
 
@@ -40,13 +45,52 @@ namespace PROG6_2016_Tamagotchi.Controllers
             return View();
         }
 
+        // GET: Tamagotchi/CreateMultiple
+        public ActionResult CreateMultiple()
+        {
+            return View();
+        }
+
+        // POST: Tamagotchi/CreateMultiple
+        [HttpPost]
+        public ActionResult CreateMultiple(FormCollection form)
+        {
+            int amount = Int32.Parse(form["Amount"]);
+
+            for (int i = amount; i > 0; i--)
+            {
+                db.Tamagotchis.Add(new Tamagotchi() { Name = "New Tamagotchi #" + (amount - i), Created = DateTime.UtcNow, LastAccess = DateTime.UtcNow, Health = 100 });
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        // GET: Tamagotchi/Refresh
+        public ActionResult Refresh()
+        {
+            foreach (Tamagotchi tamagotchi in db.Tamagotchis)
+            {
+                tamagotchi.UpdateStatus();
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         // POST: Tamagotchi/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
+        public ActionResult Create([Bind(Include = "Id,Name,LastAccess,Created,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
         {
+            tamagotchi.Created = DateTime.UtcNow;
+            tamagotchi.LastAccess = DateTime.UtcNow;
+            tamagotchi.Health = 100;
+
             if (ModelState.IsValid)
             {
                 db.Tamagotchis.Add(tamagotchi);
@@ -55,6 +99,41 @@ namespace PROG6_2016_Tamagotchi.Controllers
             }
 
             return View(tamagotchi);
+        }
+
+        // POST: Tamagotchi/Details
+        [HttpPost]
+        public ActionResult Details(int? id, FormCollection form)
+        {
+            var tamagotchi = db.Tamagotchis.Where(x => x.Id == id).First();
+            string action = form["Action"].ToString();
+
+            if (tamagotchi.Cooldown == 0 &&
+                tamagotchi.Health != 0)
+            {
+                if (action.Equals("Feed"))
+                {
+                    tamagotchi.Feed();
+                }
+                else if (action.Equals("Sleep"))
+                {
+                    tamagotchi.SleepA();
+                }
+                else if (action.Equals("Play"))
+                {
+                    tamagotchi.Play();
+                }
+                else if (action.Equals("Hug"))
+                {
+                    tamagotchi.Hug();
+                }
+            }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+            return RedirectToAction("Details", id);
+
+            //return RedirectToAction("Wait", selectedTamagotchi);
         }
 
         // GET: Tamagotchi/Edit/5
@@ -69,6 +148,10 @@ namespace PROG6_2016_Tamagotchi.Controllers
             {
                 return HttpNotFound();
             }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+
             return View(tamagotchi);
         }
 
@@ -77,11 +160,12 @@ namespace PROG6_2016_Tamagotchi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
+        public ActionResult Edit([Bind(Include = "Id,Name,LastAccess,Created,Age,Hunger,Sleep,Bored,Health")] Tamagotchi tamagotchi)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(tamagotchi).State = EntityState.Modified;
+                tamagotchi.UpdateStatus();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -100,6 +184,10 @@ namespace PROG6_2016_Tamagotchi.Controllers
             {
                 return HttpNotFound();
             }
+
+            tamagotchi.UpdateStatus();
+            db.SaveChanges();
+
             return View(tamagotchi);
         }
 

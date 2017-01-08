@@ -1,39 +1,108 @@
-﻿@model PROG6_2016_Tamagotchi.Models.Tamagotchi
+@model PROG6_2016_Tamagotchi.Models.Tamagotchi
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Tamagotchi</h4>
-        <hr />
+    <p>
+
+    </p>
+    <div class="form-horizontal" style="background-color: #d5ddea; padding: 10px; border-radius: 4px;">
+        <h4>Create Tamagotchi</h4>
+        <hr/>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group"  style="padding: 20px;">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-1" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
     </div>
 }
+<p>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<ul class="CreatureList" style="padding: 10px; width: 1100px;">
+    <li class="Creatures">
+            <img src="~/Resources/Tamagotchi1.png" alt="Tamagotchi1" height="90" width="90" >
+            <input type="radio"/>
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi2.png" alt="Tamagotchi2"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi3.png" alt="Tamagotchi3"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi4.png" alt="Tamagotchi4"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi5.png" alt="Tamagotchi5"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi11.png" alt="Tamagotchi11"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi12.png" alt="Tamagotchi12"  height="90" width="90">
+        <input type="radio" />
+    </li>
+</ul>
+<p>
+
+</p>
+
+<ul class="CreatureList" style="padding: 10px; width: 1100px;">
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi6.png" alt="Tamagotchi6"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi7.png" alt="Tamagotchi7"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi13.png" alt="Tamagotchi13"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi8.png" alt="Tamagotchi8"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi10.png" alt="Tamagotchi10"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi14.png" alt="Tamagotchi14"  height="90" width="90">
+        <input type="radio" />
+    </li>
+    <li class="Creatures">
+        <img src="~/Resources/Tamagotchi9.png" alt="Tamagotchi9"  height="90" width="90">
+        <input type="radio" />
+    </li>
+ </ul>
+
+<div style="background-color: #d5ddea; padding: 10px;">
+   <label>
+       Press enter to create your Tamagotchi
+   </label>
 </div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

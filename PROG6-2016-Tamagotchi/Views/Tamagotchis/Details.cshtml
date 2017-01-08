@@ -4,16 +4,17 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
+<h2 style="background-color: #d5ddea; padding:10px; border-radius: 4px;">Details</h2>
 
 <div>
-    <h4>Tamagotchi</h4>
+    <h4 style="background-color: #d5ddea; padding:10px; border-radius: 4px;"> Your Tamagotchi</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl style="background-color: #d5ddea; padding:10px; border-radius: 4px;" class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
@@ -24,6 +25,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Age)
+
         </dd>
 
         <dt>
@@ -31,15 +33,20 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Hunger)
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Hunger)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Hunger)%; background-color:#ceb388;">
+                @Html.DisplayFor(model => model.Hunger)%
+            </div>
         </dd>
+
 
         <dt>
             @Html.DisplayNameFor(model => model.Sleep)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sleep)
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Sleep)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Sleep)%; background-color:#88c2ce;">
+                @Html.DisplayFor(model => model.Sleep)%
+            </div>
         </dd>
 
         <dt>
@@ -47,7 +54,9 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Bored)
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Bored)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Bored)%; background-color:#db8585;">
+                @Html.DisplayFor(model => model.Bored)%
+            </div>
         </dd>
 
         <dt>
@@ -55,13 +64,44 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Health)
+            <div class="progress-bar" role="progressbar" aria-valuenow="@Html.DisplayFor(model => model.Health)" aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(model => model.Health)%; background-color:#8fe093;">
+                @Html.DisplayFor(model => model.Health)%
+            </div>
         </dd>
-
     </dl>
+
 </div>
+
+<div style="background-color: #d5ddea; border-radius: 4px; padding: 10px;">
+    <form method="post">
+        <input type="submit" name="Action" value="Feed" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <input type="submit" name="Action" value="Sleep" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <input type="submit" name="Action" value="Play" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <input type="submit" name="Action" value="Hug" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        @Html.ActionLink("Refresh All", "Details")
+    </form>
+    
+    @if (Model.Cooldown > 0)
+    {
+        <p style="margin-top: 20px;">Cooldown: @Model.Cooldown seconds left</p>
+    }
+    else
+    {
+        <p style="margin-top: 20px;">Cooldown: No cooldown!</p>
+    }
+</div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+
+</p>
+
+<p style="background-color: #d5ddea; padding:10px; border-radius: 4px; ">
     @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+

@@ -3,13 +3,17 @@
 @{
     ViewBag.Title = "Tamagotchi's";
 }
+<link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
 
-<h2 style="background-color: #d5ddea; opacity: 0.9;">Select your Tamagotchi here</h2>
+<h2 style="background-color: #d5ddea; opacity: 1; padding: 10px; border-radius: 4px;">Select your Tamagotchi here</h2>
 
-<p style="background-color: #d5ddea; opacity: 0.9;">
-    @Html.ActionLink("Create a Tamagotchi", "Create")
+
+<p style="background-color: #d5ddea; opacity: 1; padding:5px; border-radius: 4px; ">
+    @Html.ActionLink("Create a Tamagotchi", "Create") |
+    @Html.ActionLink("Create multiple Tamagotchi", "CreateMultiple") |
+    @Html.ActionLink("Refresh All", "Refresh")
 </p>
-<table class="table" style="background-color: #d5ddea; opacity: 0.9;">
+<table class="table" style="background-color: #d5ddea; opacity: 0.9; border-radius: 4px;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -54,9 +58,7 @@
         </td>
         <td>
             @Html.ActionLink("Next", "Details", new { id=item.Id }) 
-           
         </td>
     </tr>
 }
-
 </table>
