@@ -45,6 +45,28 @@ namespace PROG6_2016_Tamagotchi.Controllers
             return View();
         }
 
+        // GET: Tamagotchi/CreateMultiple
+        public ActionResult CreateMultiple()
+        {
+            return View();
+        }
+
+        // POST: Tamagotchi/CreateMultiple
+        [HttpPost]
+        public ActionResult CreateMultiple(FormCollection form)
+        {
+            int amount = form["Amount"];
+
+            for (int i = Int32.Parse(amount); i > 0; i--)
+            {
+                db.Tamagotchis.Add(new Tamagotchi() { Name = "New Tamagotchi #" + i, Created = DateTime.UtcNow, LastAccess = DateTime.UtcNow, Health = 100 });
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         // GET: Tamagotchi/Refresh
         public ActionResult Refresh()
         {

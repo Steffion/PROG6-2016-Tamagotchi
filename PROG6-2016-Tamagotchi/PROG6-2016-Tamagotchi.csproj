@@ -212,6 +212,7 @@
     <Compile Include="Models\GameRule\Hunger.cs" />
     <Compile Include="Models\GameRule\Tiredness.cs" />
     <Compile Include="Models\Tamagotchi.cs" />
+    <Compile Include="Models\TamagotchiList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -290,7 +291,7 @@
     <Content Include="Views\Tamagotchis\Create.cshtml" />
     <Content Include="Views\Tamagotchis\Delete.cshtml" />
     <Content Include="Views\Tamagotchis\Details.cshtml" />
-    <Content Include="Views\Tamagotchis\Edit.cshtml" />
+    <Content Include="Views\Tamagotchis\CreateMultiple.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
