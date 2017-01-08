@@ -5,17 +5,17 @@
 }
 
 <link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
-<h2 style="background-color: #d5ddea; padding:10px; border-radius: 4px;" >Details</h2>
+<h2 style="background-color: #d5ddea; padding:10px; border-radius: 4px;">Details</h2>
 
 <div>
-    <h4 style="background-color: #d5ddea; padding:10px; border-radius: 4px;" > Your Tamagotchi</h4>
+    <h4 style="background-color: #d5ddea; padding:10px; border-radius: 4px;"> Your Tamagotchi</h4>
     <hr />
-    <dl  style="background-color: #d5ddea; padding:10px; border-radius: 4px;"class="dl-horizontal">
+    <dl style="background-color: #d5ddea; padding:10px; border-radius: 4px;" class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
 
         </dt>
-        <dd >
+        <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
 
@@ -25,7 +25,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Age)
-            
+
         </dd>
 
         <dt>
@@ -74,23 +74,24 @@
 
 <div style="background-color: #d5ddea; border-radius: 4px; padding: 10px;">
     <form method="post">
-        @*@Html.DropDownList("Action", actions, new { @class = "form-control" })
-        <input type="submit" value="Execute" />*@
-
-        <input type="submit" name="Action" value="Feed" onclick="location.href='@Url.Action("Details", "Tamagotchis")'" style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
-        <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">
-            Sleep
-        </button>
-        <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">
-            Play
-        </button>
-        <button style="background-color: #ffb15e; padding: 10px; border-radius: 4px;">
-            Nurse
-        </button>
-
+        <input type="submit" name="Action" value="Feed" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <input type="submit" name="Action" value="Sleep" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <input type="submit" name="Action" value="Play" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        <input type="submit" name="Action" value="Hug" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
+               style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
     </form>
-
     
+    @if (Model.Cooldown > 0)
+    {
+        <p style="margin-top: 20px;">Cooldown: @Model.Cooldown seconds left</p>
+    }
+    else
+    {
+        <p style="margin-top: 20px;">Cooldown: No cooldown!</p>
+    }
 </div>
 
 <p>
@@ -98,7 +99,7 @@
 </p>
 
 <p style="background-color: #d5ddea; padding:10px; border-radius: 4px; ">
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })     | 
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })     |
     @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

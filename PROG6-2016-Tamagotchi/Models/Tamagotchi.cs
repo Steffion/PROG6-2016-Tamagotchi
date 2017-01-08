@@ -38,6 +38,9 @@ namespace PROG6_2016_Tamagotchi.Models
         private Hunger hunger = new Hunger();
 
         private FeedAction feed = new FeedAction();
+        private SleepAction sleepA = new SleepAction();
+        private PlayAction play = new PlayAction();
+        private HugAction hug = new HugAction();
 
         public void UpdateStatus()
         {
@@ -51,12 +54,41 @@ namespace PROG6_2016_Tamagotchi.Models
                 Age += deltaTime.Seconds;
             }
 
+            if (Cooldown > 0)
+            {
+                TimeSpan deltaTime = DateTime.UtcNow - LastAccess;
+
+                if (Cooldown - deltaTime.Seconds < 0)
+                {
+                    Cooldown = 0;
+                }
+                else
+                {
+                    Cooldown -= deltaTime.Seconds;
+                }
+            }
+
             LastAccess = DateTime.UtcNow;
         }
 
         public void Feed()
         {
             feed.ExectuteAction(this);
+        }
+
+        public void SleepA()
+        {
+            sleepA.ExectuteAction(this);
+        }
+
+        public void Play()
+        {
+            play.ExectuteAction(this);
+        }
+
+        public void Hug()
+        {
+            hug.ExectuteAction(this);
         }
     }
 }

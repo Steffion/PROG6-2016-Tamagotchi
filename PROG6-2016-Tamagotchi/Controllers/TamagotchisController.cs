@@ -85,17 +85,30 @@ namespace PROG6_2016_Tamagotchi.Controllers
         {
             var tamagotchi = db.Tamagotchis.Where(x => x.Id == id).First();
             string action = form["Action"].ToString();
-            // TODO Check cooldown
-            
-            if (action.Equals("Feed"))
+
+            if (tamagotchi.Cooldown == 0)
             {
-                tamagotchi.Feed();
+                if (action.Equals("Feed"))
+                {
+                    tamagotchi.Feed();
+                }
+                else if (action.Equals("Sleep"))
+                {
+                    tamagotchi.SleepA();
+                }
+                else if (action.Equals("Play"))
+                {
+                    tamagotchi.Play();
+                }
+                else if (action.Equals("Hug"))
+                {
+                    tamagotchi.Hug();
+                }
             }
 
+            tamagotchi.UpdateStatus();
             db.SaveChanges();
-            return RedirectToAction("Index");
-
-            //return RedirectToAction("Wait", selectedTamagotchi);
+            return RedirectToAction("Details", id);
         }
 
         // GET: Tamagotchi/Edit/5
