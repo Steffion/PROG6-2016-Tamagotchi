@@ -45,6 +45,19 @@ namespace PROG6_2016_Tamagotchi.Controllers
             return View();
         }
 
+        // GET: Tamagotchi/Refresh
+        public ActionResult Refresh()
+        {
+            foreach (Tamagotchi tamagotchi in db.Tamagotchis)
+            {
+                tamagotchi.UpdateStatus();
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         // POST: Tamagotchi/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
