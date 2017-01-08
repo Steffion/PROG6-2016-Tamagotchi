@@ -82,6 +82,7 @@
                style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
         <input type="submit" name="Action" value="Hug" onclick="location.href='@Url.Action("Details", "Tamagotchis")'"
                style="margin-left: 4px; background-color: #ffb15e; padding: 10px; border-radius: 4px;" />
+        @Html.ActionLink("Refresh All", "Details")
     </form>
     
     @if (Model.Cooldown > 0)

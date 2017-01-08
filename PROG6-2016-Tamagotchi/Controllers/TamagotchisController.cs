@@ -109,6 +109,8 @@ namespace PROG6_2016_Tamagotchi.Controllers
             tamagotchi.UpdateStatus();
             db.SaveChanges();
             return RedirectToAction("Details", id);
+
+            //return RedirectToAction("Wait", selectedTamagotchi);
         }
 
         // GET: Tamagotchi/Edit/5
