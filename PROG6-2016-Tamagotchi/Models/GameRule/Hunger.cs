@@ -17,7 +17,7 @@ namespace PROG6_2016_Tamagotchi.Models.GameRule
                 value = value * 2;
             }
 
-            while (interval.Ticks < deltaTime.Ticks)
+            while (interval.Ticks <= deltaTime.Ticks)
             {
                 if (tamagotchi.Hunger + value > 80 &&
                     tamagotchi.Health >= 20)

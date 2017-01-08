@@ -6,65 +6,88 @@ using PROG6_2016_Tamagotchi.Models;
 namespace PROG6_2016_Tamagotchi.Test.GameRule
 {
     [TestClass]
-    public class BoredomTest
+    public class HungerTest
     {
         private static Random random = new Random();
 
         [TestMethod]
-        public void Boredom_Interval_BoredomIs100()
+        public void Hunger_Interval_HungerIs100()
         {
             //Arrange
-            Boredom gamerule = new Boredom();
+            Hunger gamerule = new Hunger();
             Tamagotchi tamagotchi = new Tamagotchi();
 
             DateTime time = DateTime.UtcNow;
             time = time.Subtract(TimeSpan.FromSeconds(50));
 
             tamagotchi.LastAccess = time;
-            tamagotchi.Bored = 50;
+            tamagotchi.Hunger = 50;
             
             //Act
             var result = gamerule.ExecuteGameRule(tamagotchi, random.Next(15, 35));
 
             //Assert
-            Assert.AreEqual(100, result.Bored);
+            Assert.AreEqual(100, result.Hunger);
         }
 
         [TestMethod]
-        public void Boredom_Above100_BoredomIs100()
+        public void Hunger_Above100_HungerIs100()
         {
             //Arrange
-            Boredom gamerule = new Boredom();
+            Hunger gamerule = new Hunger();
             Tamagotchi tamagotchi = new Tamagotchi();
 
             DateTime time = DateTime.UtcNow;
             time = time.Subtract(TimeSpan.FromSeconds(10));
 
             tamagotchi.LastAccess = time;
-            tamagotchi.Bored = 100;
+            tamagotchi.Hunger = 100;
 
             //Act
             var result = gamerule.ExecuteGameRule(tamagotchi, random.Next(15, 35));
 
             //Assert
-            Assert.AreEqual(100, result.Bored);
+            Assert.AreEqual(100, result.Hunger);
         }
 
         [TestMethod]
-        public void Boredom_NoInterval()
+        public void Hunger_BoredAbove80_Multiply2()
         {
             //Arrange
-            Boredom gamerule = new Boredom();
+            Hunger gamerule = new Hunger();
+            Tamagotchi tamagotchi = new Tamagotchi();
+
+            DateTime time = DateTime.UtcNow;
+            time = time.Subtract(TimeSpan.FromSeconds(10));
+
+            tamagotchi.LastAccess = time;
+            tamagotchi.Hunger = 0;
+            tamagotchi.Bored = 81;
+
+            var randomint = random.Next(15, 35);
+
+            //Act
+            var result = gamerule.ExecuteGameRule(tamagotchi, randomint);
+
+            //Assert
+            Assert.AreEqual(randomint * 2, result.Hunger);
+        }
+
+        [TestMethod]
+        public void Hunger_NoInterval()
+        {
+            //Arrange
+            Hunger gamerule = new Hunger();
             Tamagotchi tamagotchi = new Tamagotchi();
 
             tamagotchi.LastAccess = DateTime.UtcNow;
-            tamagotchi.Bored = 100;
+            tamagotchi.Hunger = 100;
 
             //Act
             var result = gamerule.ExecuteGameRule(tamagotchi, random.Next(15, 35));
 
             //Assert
-            Assert.AreEqual(100, result.Bored);
+            Assert.AreEqual(100, result.Hunger);
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PROG6_2016_Tamagotchi.Models.Action;
 using PROG6_2016_Tamagotchi.Models;
 
-namespace PROG6_2016_Tamagotchi.Test
+namespace PROG6_2016_Tamagotchi.Test.Action
 {
     [TestClass]
     public class HugActionTest

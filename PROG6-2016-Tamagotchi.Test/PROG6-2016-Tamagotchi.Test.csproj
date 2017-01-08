@@ -56,6 +56,8 @@
     <Compile Include="Action\SleepActionTest.cs" />
     <Compile Include="Action\HugActionTest.cs" />
     <Compile Include="Action\FeedActionTest.cs" />
+    <Compile Include="GameRule\TirednessTest.cs" />
+    <Compile Include="GameRule\HungerTest.cs" />
     <Compile Include="GameRule\BoredomTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
