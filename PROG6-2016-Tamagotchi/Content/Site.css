@@ -55,3 +55,7 @@ textarea {
     width: 30%; 
 }
 
+a.ActionLinkButtons{
+    background-color: black;
+    text-indent: -9999px;
+}
