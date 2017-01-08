@@ -55,11 +55,11 @@ namespace PROG6_2016_Tamagotchi.Controllers
         [HttpPost]
         public ActionResult CreateMultiple(FormCollection form)
         {
-            int amount = form["Amount"];
+            int amount = Int32.Parse(form["Amount"]);
 
-            for (int i = Int32.Parse(amount); i > 0; i--)
+            for (int i = amount; i > 0; i--)
             {
-                db.Tamagotchis.Add(new Tamagotchi() { Name = "New Tamagotchi #" + i, Created = DateTime.UtcNow, LastAccess = DateTime.UtcNow, Health = 100 });
+                db.Tamagotchis.Add(new Tamagotchi() { Name = "New Tamagotchi #" + (amount - i), Created = DateTime.UtcNow, LastAccess = DateTime.UtcNow, Health = 100 });
             }
 
             db.SaveChanges();
