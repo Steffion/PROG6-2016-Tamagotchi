@@ -1,16 +1,32 @@
 using GalaSoft.MvvmLight;
 using PROG6_2016_Tamagotchi.Models;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Timers;
 
 namespace Tamagotchi.WPF.ViewModel
 {
     public class MainViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private Database _database;
+        private bool _loading { get; set; }
+        private Database _database { get; set; }
+        private List<PROG6_2016_Tamagotchi.Models.Tamagotchi> _tamagotchi;
 
-        public ObservableCollection<PROG6_2016_Tamagotchi.Models.Tamagotchi> Tamagotchi { get; set; }
+        public List<PROG6_2016_Tamagotchi.Models.Tamagotchi> Tamagotchi
+        {
+            get
+            {
+                return _tamagotchi;
+            }
+
+            set
+            {
+                _tamagotchi = value;
+                RaisePropertyChanged("Tamagotchi");
+            }
+        }
 
         public MainViewModel()
         {
@@ -24,14 +40,11 @@ namespace Tamagotchi.WPF.ViewModel
 
         public void UpdateTamagotchi(object source, ElapsedEventArgs e)
         {
-            Tamagotchi = new ObservableCollection<PROG6_2016_Tamagotchi.Models.Tamagotchi>();
+            if (_loading) return;
 
-            foreach (PROG6_2016_Tamagotchi.Models.Tamagotchi tamagotchi in _database.Tamagotchis)
-            {
-                Tamagotchi.Add(tamagotchi);
-            }
-
-            RaisePropertyChanged("Tamagatochi");
+            _loading = true;
+            Tamagotchi = new List<PROG6_2016_Tamagotchi.Models.Tamagotchi>(_database.Tamagotchis);
+            _loading = false;
         }
     }
 }

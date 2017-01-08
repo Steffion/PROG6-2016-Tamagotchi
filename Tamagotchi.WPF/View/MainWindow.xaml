@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="350" Width="530">
+        Title="MainWindow" Height="350" Width="900">
     <DataGrid ItemsSource="{Binding Tamagotchi, UpdateSourceTrigger=PropertyChanged}">
-        <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
-        <DataGridTextColumn Binding="{Binding Status}" Header="Status" />
-        <DataGridTextColumn Binding="{Binding Health}" Header="Health" />
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Name" Width="0.3*" Binding="{Binding Name}" />
+            <DataGridTextColumn Header="Health" Width="0.3*" Binding="{Binding Health}" />
+        </DataGrid.Columns>
     </DataGrid>
 </Window>
