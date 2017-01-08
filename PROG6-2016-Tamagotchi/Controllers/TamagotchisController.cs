@@ -86,7 +86,8 @@ namespace PROG6_2016_Tamagotchi.Controllers
             var tamagotchi = db.Tamagotchis.Where(x => x.Id == id).First();
             string action = form["Action"].ToString();
 
-            if (tamagotchi.Cooldown == 0)
+            if (tamagotchi.Cooldown == 0 &&
+                tamagotchi.Health != 0)
             {
                 if (action.Equals("Feed"))
                 {

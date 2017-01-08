@@ -37,7 +37,7 @@ namespace PROG6_2016_Tamagotchi.Models
         private Boredom boredom = new Boredom();
         private Hunger hunger = new Hunger();
 
-        private FeedAction feed = new FeedAction();
+        private HugAction feed = new HugAction();
         private SleepAction sleepA = new SleepAction();
         private PlayAction play = new PlayAction();
         private HugAction hug = new HugAction();
